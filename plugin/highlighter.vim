@@ -5,7 +5,7 @@ function! s:WordHighlighter()
 		return
 	endif
 	" Save our location.
-	normal! mz
+    execute "normal! i\<esc>l"
 	" Yank the current word into the z register.
 	normal! "zyiw
 	" Calculate an arbitrary match ID.  Hopefully nothing else is using it.
@@ -17,7 +17,7 @@ function! s:WordHighlighter()
 	" Actually match the words.
 	call matchadd("HighlightWord" . n, pat, 1, mid)
 	" Move back to our original location.
-	normal! `z
+    execute "normal! gi\<esc>l"
 endfunction
 
 command! Highlight call s:WordHighlighter()
