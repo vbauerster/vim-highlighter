@@ -1,22 +1,22 @@
 function! s:WordHighlighter()
-	echo 'Highlight color (1-6): '
-	let n = getchar()
-	if n < 49 || n > 54
-		return
-	endif
-	" Save our location.
+    echo 'Highlight color (1-6): '
+    let n = getchar()
+    if n < 49 || n > 54
+        return
+    endif
+    " Save our location.
     execute "normal! i\<esc>l"
-	" Yank the current word into the z register.
-	normal! "zyiw
-	" Calculate an arbitrary match ID.  Hopefully nothing else is using it.
-	let mid = 86750 + n
-	" Clear existing matches, but don't worry if they don't exist.
-	silent! call matchdelete(mid)
-	" Construct a literal pattern that has to match at boundaries.
-	let pat = '\V\<' . escape(@z, '\') . '\>'
-	" Actually match the words.
-	call matchadd("HighlightWord" . n, pat, 1, mid)
-	" Move back to our original location.
+    " Yank the current word into the z register.
+    normal! "zyiw
+    " Calculate an arbitrary match ID.  Hopefully nothing else is using it.
+    let mid = 86750 + n
+    " Clear existing matches, but don't worry if they don't exist.
+    silent! call matchdelete(mid)
+    " Construct a literal pattern that has to match at boundaries.
+    let pat = '\V\<' . escape(@z, '\') . '\>'
+    " Actually match the words.
+    call matchadd("HighlightWord" . n, pat, 1, mid)
+    " Move back to our original location.
     execute "normal! gi\<esc>l"
 endfunction
 
