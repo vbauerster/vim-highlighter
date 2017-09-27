@@ -26,6 +26,6 @@ command! Highlight call s:WordHighlighter()
 hi def HighlightWord49 guifg=#000000 ctermfg=16 guibg=#ffa724 ctermbg=214
 hi def HighlightWord50 guifg=#000000 ctermfg=16 guibg=#aeee00 ctermbg=154
 hi def HighlightWord51 guifg=#000000 ctermfg=16 guibg=#8cffba ctermbg=121
-hi def HighlightWord52 guifg=#000000 ctermfg=16 guibg=#b88853 ctermbg=137
+hi def HighlightWord52 guifg=#000000 ctermfg=16 guibg=#ffff00 ctermbg=226
 hi def HighlightWord53 guifg=#000000 ctermfg=16 guibg=#ff9eb8 ctermbg=211
 hi def HighlightWord54 guifg=#000000 ctermfg=16 guibg=#ff2c4b ctermbg=195
