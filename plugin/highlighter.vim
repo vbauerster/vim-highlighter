@@ -1,5 +1,5 @@
 function! s:WordHighlighter()
-    echo 'Highlight color (1-6): '
+    echo 'Choose [1:orange, 2:green, 3:blue, 4:yellow, 5:pink, 6:red]: '
     let n = getchar()
     if n < 49 || n > 54
         return
@@ -17,7 +17,7 @@ function! s:WordHighlighter()
     " Actually match the words.
     call matchadd("HighlightWord" . n, pat, 1, mid)
     " Move back to our original location.
-    execute "normal! gi\<esc>l"
+    normal! `^
 endfunction
 
 command! Highlight call s:WordHighlighter()
